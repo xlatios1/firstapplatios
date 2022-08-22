@@ -49,8 +49,12 @@ def update(id):
     task = Todo.query.get_or_404(id)
 
     if request.method == 'POST':
-        task.content = request.form['content']
-
+        if request.form['content'] != "":
+            task.content = request.form['content']
+        else:
+            print('There was nothing added!')
+            task.content = "null"
+        
         try:
             db.session.commit()
             return redirect('/')

@@ -1,2 +1,7 @@
 __pycache__/
 env
+.gitignore
+
+# Local Host: http://localhost:5000/
+# press start to start local host
+# ctrl+c to end local host
