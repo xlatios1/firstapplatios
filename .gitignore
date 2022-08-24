@@ -5,3 +5,7 @@ env
 # Local Host: http://localhost:5000/
 # press start to start local host
 # ctrl+c to end local host
+
+# To update online server: https://firstapplatios.herokuapp.com/
+# git commit -a -m "MESSAGE"
+# git push heroku master

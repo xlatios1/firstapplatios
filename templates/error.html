@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Error Page</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Oops! {{ error_msg }}!</h1>
+</div>
+
+<div method="POST" style="text-align: center" class="btn">
+    <a href="/">Return </a>
+</div>
+
+
+{% endblock %}
