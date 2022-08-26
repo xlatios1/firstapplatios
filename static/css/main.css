@@ -2,6 +2,13 @@ body, html {
     margin: 0;
     font-family: sans-serif;
     background-color: lightblue;
+    animation: animate 2s ease;
+}
+
+@keyframes animate{
+    0%{ background-color: #9b59b6;}
+    50%{ background-color: #3498db;}
+    100%{ background-color: #16a085;}
 }
 
 .content {

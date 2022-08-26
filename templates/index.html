@@ -12,20 +12,33 @@
     {% else %}
     <table>
         <tr>
+            <th>ID</th>
             <th>Task</th>
             <th>Added</th>
+            <th>Photos</th>
             <th>Actions</th>
         </tr>
 
         {% for task in tasks %}
             <tr>
+                <td>{{ task.id }}</td>
                 <td>{{ task.content }}</td>
                 <td>{{ task.date_created.date() }}</td>
+                <td>
+                    {% if task.photo_data %}
+                        <div class="mt-5">
+                            <a href="/upload_image/{{task.id}}"><img src="{{ task.photo_data }}" style="width: 30px;"></a>
+                        </div>
+                    <br>
+                    <a href="/delete/{{task.id}}/task.photo_data">Delete</a>
+                    <br>
+                    {% endif %}
+                    <a href="/upload_image/{{task.id}}">Upload Photo</a>
+                </td>
                 <td>
                     {{ task.date_created.date() }}
                     <br>
                     <a href="/delete/{{task.id}}">Delete</a>
-                              
                     <a href="/update/{{task.id}}">Update</a>
                 </td>
             </tr>
@@ -35,10 +48,16 @@
     {% endif %}
 
     <div class="form">
-        <form action="/" method="POST">
+        <form class="was-validated mb-3" action="/" method="POST">
             <input type="text" name="content" id="content">
-            <input type="submit" value="Add Task">
+            <input type="submit" name="btn" value="Add Task">
         </form>
     </div>
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="submit" name="btn" value="New Function">
+        </form>
+    </div>
+    
 </div>
 {% endblock %}
