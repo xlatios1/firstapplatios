@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title></title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">   
+        <div class="col-6  mx-auto mt-5 text-center" style="text-align: center">
+
+            <h1 class="mb-5">Flask Image Upload and Show</h1>
+
+            <form method="post" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+
+                {% for error in form.photo.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        {{ form.photo(class="form-control") }}
+                    </div>
+                    <div class="col-auto">
+                        {{ form.submit(class="btn btn-success") }}
+                    </div>
+                </div>
+            </form>
+            
+            {% if photo_data %}
+                <div class="mt-5">
+                    <img src="{{ photo_data }}" style="width: 400px">
+                </div>
+            {% endif %}
+
+            <div method="POST" style="text-align: center" class="btn">
+                <a href="/">Return </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
